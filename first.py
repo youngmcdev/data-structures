@@ -1,13 +1,17 @@
 import os
 
+# Counts down to zero using a while loop. No recursion.
 def countdown1(number):
     while number >= 0:
         print(number)
         number -= 1
 
+# Counts down using recursion.
 def countdown2(number):
     print(number)
 
+    if number < 0:
+        return 0
     if number == 0:
         return
     countdown2(number - 1)
@@ -138,7 +142,7 @@ def fib_iterate(nthFibNumber):
 
 
 #countdown1(6)
-#countdown2(5)
+countdown2(-5)
 #print(factorial(10))
 #print_subdir_one_level("C:\logs")
 #print_subdir_two_levels("C:\\repos")
