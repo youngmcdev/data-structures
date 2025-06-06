@@ -2,15 +2,15 @@
 <!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
 <node TEXT="Data Structures" FOLDED="false" ID="ID_1090958577" CREATED="1606664858024" MODIFIED="1745584819715" VGAP_QUANTITY="3 pt">
 <hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
-<hook NAME="MapStyle" background="#3c3836">
-    <properties show_icon_for_attributes="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" fit_to_viewport="false" associatedTemplateLocation="template:/dark_gruvbox_template.mm"/>
+<hook NAME="MapStyle" background="#3c3836" zoom="0.77">
+    <properties show_icon_for_attributes="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" show_note_icons="true" associatedTemplateLocation="template:/dark_gruvbox_template.mm" fit_to_viewport="false"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
 <font SIZE="24"/>
 <stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
 <stylenode LOCALIZED_TEXT="default" ID="ID_602083445" ICON_SIZE="12 pt" FORMAT_AS_HYPERLINK="false" COLOR="#3c3836" BACKGROUND_COLOR="#fbf1c7" STYLE="bubble" SHAPE_HORIZONTAL_MARGIN="8 pt" SHAPE_VERTICAL_MARGIN="5 pt" BORDER_WIDTH_LIKE_EDGE="false" BORDER_WIDTH="1.9 px" BORDER_COLOR_LIKE_EDGE="true" BORDER_COLOR="#f0f0f0" BORDER_DASH_LIKE_EDGE="true" BORDER_DASH="SOLID" VGAP_QUANTITY="3 pt">
-<arrowlink SHAPE="CUBIC_CURVE" COLOR="#a89984" WIDTH="2" TRANSPARENCY="255" DASH="" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_602083445" STARTINCLINATION="102.75 pt;-19.5 pt;" ENDINCLINATION="102.75 pt;3 pt;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#a89984" WIDTH="2" TRANSPARENCY="255" DASH="" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_602083445" STARTINCLINATION="102.6 pt;-18.9 pt;" ENDINCLINATION="102.6 pt;3 pt;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
 <font NAME="SansSerif" SIZE="11" BOLD="false" STRIKETHROUGH="false" ITALIC="false"/>
 <edge STYLE="bezier" COLOR="#93a1a1" WIDTH="3" DASH="SOLID"/>
 <richcontent CONTENT-TYPE="plain/auto" TYPE="DETAILS"/>
@@ -155,10 +155,16 @@
 </node>
 </node>
 <node TEXT="Tries" POSITION="right" ID="ID_190799079" CREATED="1745601965260" MODIFIED="1745601975477">
-<node TEXT="The trie is a kind of tree that’s ideal for text-based features" ID="ID_1181562420" CREATED="1745602088027" MODIFIED="1745602095811">
-<node TEXT="Being a tree, it is a collection of nodes. However, it&apos;s not a binary tree. Whereas a binary tree doesn’t allow any node to have more than two child nodes, a trie node can have any number of child nodes." ID="ID_667450811" CREATED="1745602148080" MODIFIED="1745602253286"/>
+<node TEXT="Intro" ID="ID_1842859937" CREATED="1749226197155" MODIFIED="1749226202140">
+<node TEXT="Describe the scenario on page 303 where he gives some different examples of how we might store words for an autocomplete or spellcheck." ID="ID_453590883" CREATED="1749226203034" MODIFIED="1749226335148"/>
+<node TEXT="Name" ID="ID_1134779957" CREATED="1749226385759" MODIFIED="1749226395840">
+<node TEXT="It is a tree and is named after Retrieval and thus could be pronounced &quot;tree&quot;. But that would be confused with the word &quot;tree&quot;, so it&apos;s pronounced &quot;Try&quot;." ID="ID_1891879893" CREATED="1749226395920" MODIFIED="1749226564541"/>
 </node>
-<node TEXT="In our implementation, each trie node contains a hash table, where the keys are English characters and the values are other nodes of the trie. [diagram on pg 304]" ID="ID_1231119906" CREATED="1745602333334" MODIFIED="1745602334443"/>
+</node>
+<node TEXT="The trie is a kind of tree that’s ideal for text-based features" ID="ID_1181562420" CREATED="1745602088027" MODIFIED="1745602095811">
+<node TEXT="Being a tree, it is a collection of nodes that point to other nodes. However, it&apos;s not a binary tree. Whereas a binary tree doesn’t allow any node to have more than two child nodes, a trie node can have any number of child nodes." ID="ID_667450811" CREATED="1745602148080" MODIFIED="1749226652761"/>
+</node>
+<node TEXT="In our implementation, each trie node contains a hash table (dictionary?), where the keys are English characters and the values are other nodes of the trie. [diagram on pg 304]" ID="ID_1231119906" CREATED="1745602333334" MODIFIED="1749226759470"/>
 <node TEXT="Store words" ID="ID_304075668" CREATED="1745677963591" MODIFIED="1745677969199"/>
 <node TEXT="Search for word/prefix" ID="ID_629945139" CREATED="1745677969572" MODIFIED="1745677979637"/>
 </node>

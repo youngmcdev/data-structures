@@ -1,7 +1,7 @@
 import uuid
 
 class TrieNode:
-    nodeId = 0
+    nodeId = 1
 
     def __init__(self):
         self.children = {}
