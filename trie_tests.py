@@ -8,11 +8,11 @@ parser = argparse.ArgumentParser(
 parser.add_argument('dictionaryFile',
     help='Text file containing the words to be inserted into the Trie.')
 
-parser.add_argument('-f', '--function', type=str, choices=['test','search','complete', 'match', 'list', 'correct'], default='test', help='Select a function to test: "search", "complete", "match", "list", "correct", or "test"')
+parser.add_argument('-f', '--function', type=str, choices=['search','complete', 'match', 'list', 'correct', 'bfs'], default='bfs', help='Select a function to test: "search", "complete", "match", "list", "correct", or "bfs"')
 parser.add_argument('-v', '--value', type=str, default='', help='The value to use for the specified function.')
 args = parser.parse_args()
 
-print(f"Function: {args.function}; Value: {args.value}; Dictionary: {args.dictionaryFile}")
+print(f"[INF] Function: '{args.function}'; Value: '{args.value}'; Dictionary: '{args.dictionaryFile}'\n")
 
 # Initialize Trie
 t = trie.Trie()
@@ -20,7 +20,7 @@ t = trie.Trie()
 # Read specified dictionary and insert the words.
 
 if not os.path.exists(args.dictionaryFile):
-    print(f"Could not open file, {args.dictionaryFile}.")
+    print(f"[ERR] Could not open file, {args.dictionaryFile}.\n")
     quit()
 
 with open(args.dictionaryFile) as dictionaryFile:
@@ -40,10 +40,14 @@ def assert_equal(x, y):
     else:
         print("    No, try again.")
 
-if args.function == 'list' and args.value:
+if args.function == 'list':
     print(f"Here are all the words!")
     words = t.collect_all_words([])
     print(words)
+    quit()
+if args.function == 'bfs':
+    print(f"Displaying all the nodes.")
+    t.traverse_bfs()
     quit()
 
 if args.function == 'search' and args.value:
@@ -77,7 +81,7 @@ if args.function == 'correct' and args.value:
     quit()
 
 #print(t.search('h').children.keys())
-t.traverse_bfs()
+#t.traverse_bfs()
 #assert_equal(t.search("h").children.keys(), {'y', 'e', 'i', 'o', 'u', 'a'})
 #assert_equal(t.search('himn'), None)
 #words = t.collect_all_words([])

@@ -1,5 +1,6 @@
 import uuid
 
+# Individual nodes in the tree
 class TrieNode:
     nodeId = 1
 

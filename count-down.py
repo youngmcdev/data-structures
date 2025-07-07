@@ -1,12 +1,14 @@
 import os, argparse
 
 # Counts down to zero using a while loop. No recursion.
+
 def countdown1(number):
     while number >= 0:
         print(number)
         number -= 1
 
 # Counts down using recursion.
+
 def countdown2(number):
     number = abs(number)
     print(number)
@@ -18,7 +20,7 @@ def countdown2(number):
 parser = argparse.ArgumentParser(
     prog='count-down',
     description='Counts down to zero.',
-    epilog='Nuf said!')
+    epilog='')
 
 parser.add_argument('startingValue', type=int,
     help='Number from which to count down.')

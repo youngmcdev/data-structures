@@ -140,6 +140,41 @@ def fib_iterate(nthFibNumber):
 
     return nextFibNumber
 
+def double_array_loop(array):
+    index = 0
+    while index < len(array):
+        array[index] *= 2
+        index += 1
+
+def double_array(array, index = 0):
+    # Base case: when the index goes past 
+    # the end of the array
+    if index >= len(array):
+        return
+    array[index] *= 2
+    double_array(array, index + 1)
+
+
+def reverse(string):
+    if not string:
+        return ""
+    return reverse(string[1:]) + string[0]
+
+# Staircase Problem
+def number_of_paths(n):
+    # Muliple base cases
+    if n <= 0:
+        return 0
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+    if n == 3:
+        return 4
+    return (number_of_paths(n - 1)
+        + number_of_paths(n - 2)
+        + number_of_paths(n - 3))
+
 
 #countdown1(6)
 countdown2(-5)

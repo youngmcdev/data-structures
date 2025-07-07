@@ -13,6 +13,7 @@ class Trie:
     def __init__(self):
       self.root = trie_node.TrieNode()
     
+
     # Search the tree for the value of word. If it exists, return the last node. 
     def search(self, word):
         current_node = self.root
@@ -25,7 +26,8 @@ class Trie:
 
         return current_node
     
-    # Search the tree for the value of word. If it does not exist, add it. Return the last node.
+
+    # Search the tree for the value of word. If it does not exist, add it.
     def insert(self, word):
         current_node = self.root
 
@@ -39,7 +41,9 @@ class Trie:
 
         current_node.children["*"] = None
 
-    # Return an array of all the word that can be generated beginnig at the node that is passed in (defaults to the root node). 
+
+    # Return an array of all the words that can be generated beginnig at the node 
+    # that is passed in (defaults to the root node). 
     def collect_all_words(self, words, node: trie_node.TrieNode = None, word=""):
         current_node = node or self.root
         for key, child_node in current_node.children.items():
@@ -50,7 +54,9 @@ class Trie:
 
         return words
     
-    # Given the prefix passed in, return a list containing the remaining characters of all possible words.
+
+    # Given the prefix passed in, return a list containing the remaining characters 
+    # of all possible words.
     def autocomplete(self, prefix):
         current_node = self.search(prefix)
 
@@ -58,16 +64,6 @@ class Trie:
             return None
         
         return self.collect_all_words([], current_node)
-    
-    # Not super useful, but does tavers the tree printing the key of each node.
-    def traverse(self, node: trie_node.TrieNode = None):
-        current_node = node or self.root
-
-        for key, child_node in current_node.children.items():
-            print(key)
-
-            if key != "*":
-                self.traverse(child_node)
 
 
     # This is a helper method for travese_bfs(). It aids in displaying the relationships in console output.
@@ -81,6 +77,7 @@ class Trie:
                 childData[currentChildNodeCharacter] = currentChildNode.id
         nodeData.children = childData
         return nodeData
+
 
     # Traverse the tree and ouput its contents to the console.
     def traverse_bfs(self):
@@ -111,6 +108,7 @@ class Trie:
         for rowOfCharacters in rowsOfCharacters:
             print(rowOfCharacters)
         
+
     # ??
     def autocorrect(self, word):
         current_node = self.root
@@ -127,3 +125,12 @@ class Trie:
         return word
 
 
+# Not super useful, but does taverse the tree printing the key of each node.
+    def traverse(self, node: trie_node.TrieNode = None):
+        current_node = node or self.root
+
+        for key, child_node in current_node.children.items():
+            print(key)
+
+            if key != "*":
+                self.traverse(child_node)
