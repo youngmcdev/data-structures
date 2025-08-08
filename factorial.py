@@ -1,19 +1,21 @@
-import os, argparse
+import os, argparse, sys
+sys.set_int_max_str_digits(0)
 
+# Top down recursive implementation
 def factorial(number):
     if number <= 1:
         return 1
     else:
         return number * factorial(number- 1)
 
-# Start with one and build up.
+# Not using recursion
 def factorial_loop(n):
     product = 1
     for num in range(1, n + 1):
         product *= num
     return product
 
-# Recursive implementation
+# Bottom up recursive implementation
 def factorial2(n, i = 1, product = 1):
     if i > n:
         return product
@@ -30,5 +32,8 @@ parser.add_argument('-r', '--recurse', action='store_true', help='Use a recursiv
 
 args = parser.parse_args()
 
-fac = factorial(args.startingValue)
-print(f'{args.startingValue}! = {fac}')
+if args.recurse:
+    fac = factorial(args.startingValue)
+else:
+    fac = factorial_loop(args.startingValue)
+print(f'{args.startingValue}! = {fac} (calculated with{"" if args.recurse else "out"} recursion)\n')
