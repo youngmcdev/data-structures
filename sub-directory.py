@@ -2,8 +2,9 @@ import os, argparse
 
 def print_subdir_one_level(directoryName):
     isDirectory = os.path.isdir(directoryName)
-    print(f'Searching for, {directoryName}, which is {"" if isDirectory else "NOT "}a directory.')
+    #print(f'Searching for, {directoryName}, which is {"" if isDirectory else "NOT "}a directory.')
     if not isDirectory:
+        print(f"'{directoryName}' is not a directory.")
         return
     
     dirList = os.listdir(directoryName)
@@ -17,15 +18,13 @@ def print_subdir_one_level(directoryName):
         if isDirectory:
             dirCount += 1
             print(fullPath)
-        # else:
-            # print(f'  {filename} is not a directory.')
-    print(f'  {dirCount} directories found.')
 
 
 def print_subdir_two_levels(directoryName):
     isDirectory = os.path.isdir(directoryName)
-    print(f'Searching for, {directoryName}, which is {"" if isDirectory else "NOT "}a directory.')
+    #print(f'Searching for, {directoryName}, which is {"" if isDirectory else "NOT "}a directory.')
     if not isDirectory:
+        print(f"'{directoryName}' is not a directory.")
         return
     
     for filename in os.listdir(directoryName):
@@ -38,10 +37,12 @@ def print_subdir_two_levels(directoryName):
                 if os.path.isdir(path2):
                     print(path2)
 
+
 def print_subdir_recurse(directoryName):
     isDirectory = os.path.isdir(directoryName)
-    print(f'Searching for, {directoryName}, which is {"" if isDirectory else "NOT "}a directory.')
+    #print(f'Searching for, {directoryName}, which is {"" if isDirectory else "NOT "}a directory.')
     if not isDirectory:
+        print(f"'{directoryName}' is not a directory.")
         return
     
     for filename in os.listdir(directoryName):
@@ -57,13 +58,16 @@ parser = argparse.ArgumentParser(
 parser.add_argument('rootDirectory',
     help='The directory from which to start.')
 
-parser.add_argument('-l', '--levels', type=int, choices=[0,1,2], default=1, help='How many levels down should we go? One (1), Two (2), or All (0)')
+parser.add_argument('-l', '--levels', type=int, choices=[0,1,2], default=1, help="How many levels down should we go? One (1), Two (2), or All (0). 'All' uses recursion.")
 
 args = parser.parse_args()
+usingRecursion = False
 
 if args.levels == 0:
     print_subdir_recurse(args.rootDirectory)
+    usingRecursion = True
 elif args.levels == 2:
     print_subdir_two_levels(args.rootDirectory)
 else:
     print_subdir_one_level(args.rootDirectory)
+print(f'\n(directories traversed with{"" if usingRecursion else "out"} recursion)\n')
